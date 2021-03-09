@@ -1,0 +1,16 @@
+name: Upload SARIF
+
+on:
+  push:
+
+jobs:
+  upload-sarif:
+    name: Upload SARIF
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Upload SARIF
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: output.sarif
